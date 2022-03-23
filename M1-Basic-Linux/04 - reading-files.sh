@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#./ec2.sh
+
 cp fixlog.log ~/fixlog.log
 cp fixGenerator.sh ~/fixGenerator.sh
 
@@ -45,27 +47,33 @@ grep 35=D fixlog* > logs/neworders.log
 cp logs/neworders.log ~/.
 
 # 13. Run a command to find out how many lines are in the newOrders.log file.
+echo $'\nTotal Lines in newOrders.log: '
 wc -l neworders.log
 
 # 14. Run a command to pull out all of the messages with the instruction buy in x (you may need to look up the tag again) from the original log file and put them into a new log file in the logs directory named buyMessages.log
 grep 54=1 fixlog* > logs/buymessages.log
 
 # 15. Count how many lines are in that file.
+echo $'\nTotal Lines in buyMessages.log:'
 wc -l logs/buymessages.log
 
 # 16. Count how many new orders are in the buyMessages.log.
+echo $'\nNew Orders in buyMessages.log:'
 grep 35=D logs/buymessages.log | wc -l
 
 # 17. Create a new version of the log file named noNewOrders.log that has everything except new order messages in it and put it in the logs directory. 
 grep -v 35=D fixlog* > logs/noneworders.log
 
 # 18. Count how many words are in the noNewOrders.log. 
+echo $'\nWord Count noNewOrders.log:'
 wc -w logs/noneworders.log
 
 # 19. Show the last 5 lines of the noNewOrders.log to the screen.
+echo $'\nLast 5 lines of noNewOrders.log'
 tail -n 5 logs/noneworders.log
 
 # 20. Find all the messages relating to Apple in the original log file and show the first two lines to the screen. 
+echo $'\nMessages relating to AAPL'
 grep aapl fixlog* | head -n 2
 
 # 21. Add a soft link named fix to your fixGenerator script.
@@ -73,7 +81,7 @@ ln -s fixgenerator.sh fix
 
 # 22. Tail the log file created looking for new orders only in your tail command. (This will not actually cause any updates to the screen because the log file is not currently being updated.) 
 # tail -f fixlog* | grep 35=D
-echo '-> skipping tail -f'
+echo $'Tail fixlog for new orders:'
 tail fixlog* | grep 35=D
 
 # 23. Create a new directory named superLogs
@@ -83,12 +91,15 @@ mkdir superlogs
 cp -r logs superlogs/.
 
 # 25. Run a single grep command with an option on grep to count the number of messages for FB in the original log file that was created.
+echo $'\nCount the number of messages for FB:'
 grep -c FB fixlog*
 
 # 26. Count the number of words in the original logfile. 
+echo $'\nWord Count fixlog:'
 wc -w fixlog*
 
 # 27. Find the number of new order messages for Netflix in the original log file.
+echo $'\nCount new messages for NFLX:'
 grep 35=D fixlog* | grep NFLX | wc -l
 
 # 28. Delete the files from the home directory
