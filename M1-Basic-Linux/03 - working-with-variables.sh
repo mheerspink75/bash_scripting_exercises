@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 cd ~ && pwd
 
 #### Working with Variables ####
@@ -88,7 +88,8 @@ pwd
 rm -rf Payment1
 
 # 29. Delete the cat.output file, but with a warning first to the user
-rm -i cat.output
+#rm -i cat.output
+rm -rf cat.output
 
 # 30. Create a directory named temp
 mkdir temp
