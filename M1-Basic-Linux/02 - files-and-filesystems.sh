@@ -73,3 +73,5 @@ cd Algo1/scripts && rm s*.sh
 
 # 24. Remove Algo1 from the home directory
 cd ~ && rm -rf Algo1
+
+ls

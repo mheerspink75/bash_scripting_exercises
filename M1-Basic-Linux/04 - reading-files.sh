@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#./ec2.sh
 
-cp fixlog.log ~/fixlog.log
+cp fixlog.log ~/fixlog.log 
 cp fixGenerator.sh ~/fixGenerator.sh
 
 
@@ -10,10 +9,9 @@ cp fixGenerator.sh ~/fixGenerator.sh
 cd ~ && pwd
 
 # 1. Using the cat command, display the contents of the fixGenerator.sh script to the screen. 
-# cat fixGenerator.sh
-echo '-> skipping fixGenerator.sh & using fixlog.log'
+cat fixGenerator.sh
 # 2. Use the cat command to display the contents of the script you ran to the screen but with line numbers.
-# cat -n fixGenerator.sh
+cat -n fixGenerator.sh
 
 # 3. Read the contents of the log file created using cat but direct it to a new file in your home directory named newlog.log
 cat fixlog* > ~/newlog.log
@@ -30,12 +28,14 @@ cat fixlog* >> logs/newlog.log
 # 7. Create a soft link named Daily to your newlog.log file in the logs directory.
 ln -s newlog.log daily
 
+ls -ltr
+
 # 8. Return to your home directory.
 cd  ~
 
 # 9. Cat the original fix log file created into a less so that you can browse the file. 
 #cat fixlog* | less
-echo '-> skipping view less'
+
 
 # 10. Using the search function in less, look for any new order messages. (You may need to refer back to your x training to look up the appropriate x tag.) In less you will run:
 #/35=D 
@@ -74,7 +74,7 @@ tail -n 5 logs/noneworders.log
 
 # 20. Find all the messages relating to Apple in the original log file and show the first two lines to the screen. 
 echo $'\nMessages relating to AAPL'
-grep aapl fixlog* | head -n 2
+grep AAPL fixlog* | head -n 2
 
 # 21. Add a soft link named fix to your fixGenerator script.
 ln -s fixgenerator.sh fix
