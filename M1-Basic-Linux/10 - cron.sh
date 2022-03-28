@@ -2,6 +2,8 @@
 
 ### CRON #########################################
 
+cp fixgenerator.sh ~/fixgenerator.sh
+
 # 1. Set up the script to run Monday-Friday at 6am.
 0 6 * * 1-5 ~/fixGenerator.sh
 
