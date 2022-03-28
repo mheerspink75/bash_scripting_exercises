@@ -72,3 +72,4 @@ ls -ltrS
 echo $'\n14. Find out the hardware version you are running -> uname -i'
 
 uname -i
+
