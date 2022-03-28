@@ -12,7 +12,7 @@ wc -l newOrders.log
 
 # 3. Go to the fifth line in the file and duplicate it also.
 cat newOrders.log | awk 'NR==5'
-sed -i '1s/^/'"$(cat newOrders.log | awk 'NR==5')"'\n/' newOrders.log
+sed -i '5s/^/'"$(cat newOrders.log | awk 'NR==5')"'\n/' newOrders.log
 wc -l newOrders.log
 
 # 4. Find and replace every instance of MTHREE with M3.
